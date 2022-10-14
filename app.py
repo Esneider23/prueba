@@ -15,7 +15,8 @@ mysql = MySQL(server)
 @server.get('/vehiculos')
 def index():
     try:
-        cursor = mysql.connection.cursor()
+        return "Mundo"
+        """cursor = mysql.connection.cursor()
         sql = "select v.name, su.name, s.selling_price, v.motor, v.gearbox, v.security from stock s " \
               "inner join vehicle v on (s.name = v.id) inner join supplier su on (s.supplier = su.idsupplier)"
         cursor.execute(sql)
@@ -25,7 +26,7 @@ def index():
             vehicle = {'name': fila[0], 'supplier': fila[1], 'price': fila[2], 'motor': fila[3], 'gearbox': fila[4],
                        'security': fila[5]}
             vehicles.serverend(vehicle)
-        return jsonify({'vehicles': vehicles, 'message': 'Listed vehicles'})
+        return jsonify({'vehicles': vehicles, 'message': 'Listed vehicles'})"""
     except Exception as ex:
         return jsonify({'message': ex})
 
